@@ -1,6 +1,7 @@
-import qualapi.model.Api;
-import qualapi.model.Path;
+import qualapi.domain.Api;
+import qualapi.domain.Path;
 import qualapi.neo4jUtils.GenericService;
+import qualapi.service.ApiService;
 
 import java.util.ArrayList;
 
@@ -17,12 +18,7 @@ public class DummyTest {
         api1.paths.add(new Path("/path/1"));
         Api api2 = new Api("Api2");
 
-	    GenericService<Api> serviceAPI = new GenericService<qualapi.model.Api>() {
-            @Override
-            public Class<qualapi.model.Api> getEntityType() {
-                return qualapi.model.Api.class;
-            }
-        };
+	    ApiService serviceAPI = new ApiService();
 
 	    // Neo4jSessionFactory.getInstance().getNeo4jSession().purgeDatabase();
 	    serviceAPI.createOrUpdate(api1);

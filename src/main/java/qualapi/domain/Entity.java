@@ -1,13 +1,13 @@
-package qualapi.model;
+package qualapi.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by kbiger on 16/03/16.
  */
 public abstract class Entity {
 
-	@GraphId
+	@JsonProperty("id")
 	private Long id;
 
 	public Long getId() {

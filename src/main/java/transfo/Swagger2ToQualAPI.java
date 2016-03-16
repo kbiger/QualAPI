@@ -1,13 +1,10 @@
 package transfo;
 
-import qualapi.model.InfoApi;
-import qualapi.model.Path;
+import qualapi.domain.Path;
 import swagger2.model.Api;
-import swagger2.model.Definition;
 import swagger2.model.Operation;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,44 +12,34 @@ import java.util.Map;
  */
 public class Swagger2ToQualAPI {
 
-    public qualapi.model.Api runTransfo(Api in, String name) {
-        qualapi.model.Api out = new qualapi.model.Api();
-        out.name = name;
-        out.swagger = in.swagger;
-
-        //Info bloc
-        /*out.info = new InfoApi();
-        if (in.info == null || in.info.title == null) {
-            out.info.title = "toto";
+    public qualapi.domain.Api runTransfo(Api in, qualapi.domain.Api out) {
+        qualapi.domain.Api result;
+        if (out == null){
+            result = new qualapi.domain.Api();
+            result.name = in.info.title;
+            result.swagger = in.swagger;
+            result.host = in.host;
+            result.schemes = in.schemes;
+            result.basePath = in.basePath;
+            result.produces = in.produces;
+            result.consumes = in.consumes;
+            result.paths = new ArrayList<Path>();
         } else {
-            out.info.title = in.info.title;
+            result = out;
         }
-        out.info.description = in.info.description;
-        out.info.version = in.info.version;*/
-
-        out.host = in.host;
-        out.schemes = in.schemes;
-        out.basePath = in.basePath;
-
-        //securityDefinitions; //TODO
-        out.produces = in.produces;
-        out.consumes = in.consumes;
 
         //paths; //TODO
-        out.paths = new ArrayList<Path>();
         for (Map.Entry<String, Map<String, Operation>> entry : in.paths.entrySet())
         {
             Path tempPath = new Path(entry.getKey());
-            out.paths.add(tempPath);
-            tempPath.operations = new ArrayList<qualapi.model.Operation>();
+            result.paths.add(tempPath);
+            tempPath.operations = new ArrayList<qualapi.domain.Operation>();
             for(Map.Entry<String, Operation> entryOp : entry.getValue().entrySet()){
-                tempPath.operations.add(new qualapi.model.Operation(entryOp.getKey()));
+                tempPath.operations.add(new qualapi.domain.Operation(entryOp.getKey()));
             }
         }
 
-
-        //definitions; //TODO
-        return out;
+        return result;
     }
 
 }

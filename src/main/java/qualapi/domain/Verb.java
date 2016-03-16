@@ -1,4 +1,4 @@
-package qualapi.model;
+package qualapi.domain;
 
 /**
  * Created by kbiger on 24/09/15.

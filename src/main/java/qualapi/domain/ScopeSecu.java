@@ -1,6 +1,5 @@
-package qualapi.model;
+package qualapi.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 /**

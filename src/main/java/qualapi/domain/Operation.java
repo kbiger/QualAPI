@@ -1,6 +1,5 @@
-package qualapi.model;
+package qualapi.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
@@ -15,6 +14,7 @@ public class Operation extends Entity{
     public Operation(String name){
         this.name = name;
     }
+    public Operation(){}
 
     public String name;
 

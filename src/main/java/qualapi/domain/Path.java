@@ -1,6 +1,5 @@
-package qualapi.model;
+package qualapi.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
@@ -15,6 +14,8 @@ public class Path extends Entity{
     private String name;
 
     public String uri;
+
+	public Path(){}
 
     public Path(String uri){
         this.uri = uri;

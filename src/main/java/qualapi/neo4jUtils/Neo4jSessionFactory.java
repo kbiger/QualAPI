@@ -8,7 +8,7 @@ import org.neo4j.ogm.session.SessionFactory;
  */
 public class Neo4jSessionFactory {
 
-	private static final String DOMAIN_NAME = "qualapi.model";
+	private static final String DOMAIN_NAME = "qualapi.domain";
 	private static final String SERVER_URL = "http://localhost:7474";
 	private static final String USER = "neo4j";
 	private static final String PASSWORD = "changeme";
@@ -25,5 +25,6 @@ public class Neo4jSessionFactory {
 
 	public Session getNeo4jSession() {
 		return sessionFactory.openSession(SERVER_URL,USER,PASSWORD);
+		//return sessionFactory.openSession();
 	}
 }

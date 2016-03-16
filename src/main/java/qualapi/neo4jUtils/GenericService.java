@@ -1,7 +1,7 @@
 package qualapi.neo4jUtils;
 
 import org.neo4j.ogm.session.Session;
-import qualapi.model.Entity;
+import qualapi.domain.Entity;
 
 /**
  * Created by kbiger on 16/03/16.
@@ -10,7 +10,7 @@ public abstract class GenericService<T> implements Service<T> {
 
 	private static final int DEPTH_LIST = 0;
 	private static final int DEPTH_ENTITY = -1;
-	private Session session = Neo4jSessionFactory.getInstance().getNeo4jSession();
+	protected Session session = Neo4jSessionFactory.getInstance().getNeo4jSession();
 
 	public Iterable<T> findAll() {
 		return session.loadAll(getEntityType(), DEPTH_LIST);
