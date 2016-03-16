@@ -10,14 +10,12 @@ import java.util.List;
  * Created by kbiger on 24/09/15.
  */
 @NodeEntity
-public class Operation {
+public class Operation extends Entity{
 
     public Operation(String name){
         this.name = name;
     }
 
-    @GraphId
-    public Long id;
     public String name;
 
     public Verb verb;

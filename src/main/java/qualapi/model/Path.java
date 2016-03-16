@@ -10,10 +10,8 @@ import java.util.List;
  * Created by kbiger on 24/09/15.
  */
 @NodeEntity
-public class Path {
+public class Path extends Entity{
 
-    @GraphId
-    private Long id;
     private String name;
 
     public String uri;

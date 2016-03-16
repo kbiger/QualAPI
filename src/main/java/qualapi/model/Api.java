@@ -10,10 +10,8 @@ import java.util.List;
  * Created by kbiger on 24/09/15.
  */
 @NodeEntity
-public class Api {
+public class Api extends Entity{
 
-    public Long id;
-    @GraphId
     public String name;
 
     public String swagger;

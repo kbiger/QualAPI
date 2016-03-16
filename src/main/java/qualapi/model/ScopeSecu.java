@@ -7,10 +7,8 @@ import org.neo4j.ogm.annotation.NodeEntity;
  * Created by kbiger on 30/09/15.
  */
 @NodeEntity
-public class ScopeSecu {
+public class ScopeSecu extends Entity{
 
-    @GraphId
-    private Long id;
     private String name;
 
 }
